@@ -8,5 +8,12 @@ with app.app_context():
     db.create_all()
     print("All database tables created successfully!")
 
+print("\n========== REGISTERED ROUTES ==========\n")
+
+for rule in app.url_map.iter_rules():
+    print(rule)
+
+print("\n=======================================\n")
+
 if __name__ == "__main__":
     app.run(debug=True)

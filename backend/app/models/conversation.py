@@ -3,14 +3,24 @@ from datetime import datetime
 
 
 class Conversation(db.Model):
+
     __tablename__ = "conversations"
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
 
     user_id = db.Column(
         db.Integer,
         db.ForeignKey("users.id"),
         nullable=False
+    )
+
+    document_id = db.Column(
+        db.Integer,
+        db.ForeignKey("documents.id"),
+        nullable=True
     )
 
     title = db.Column(

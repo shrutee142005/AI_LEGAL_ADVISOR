@@ -1,22 +1,32 @@
 from pypdf import PdfReader
 
 
+# ==================================================
+# EXTRACT PDF TEXT
+# ==================================================
+
 def extract_text_from_pdf(file_path):
     """
-    Extract text from a PDF file.
+    Extract text from all pages of a PDF.
     """
 
     reader = PdfReader(file_path)
 
-    text = ""
+    pages = []
 
     for page in reader.pages:
+
         page_text = page.extract_text()
 
         if page_text:
-            text += page_text + "\n"
+            pages.append(page_text.strip())
 
-    return text
+    return "\n\n".join(pages)
+
+
+# ==================================================
+# SPLIT TEXT INTO CHUNKS
+# ==================================================
 
 def split_text_into_chunks(
     text,
@@ -24,21 +34,52 @@ def split_text_into_chunks(
     chunk_overlap=200
 ):
     """
-    Split large text into smaller overlapping chunks.
+    Split extracted PDF text into overlapping chunks.
     """
+
+    if not text:
+        return []
+
+    text = text.strip()
+
+    if not text:
+        return []
+
+    if chunk_overlap >= chunk_size:
+        raise ValueError(
+            "chunk_overlap must be smaller than chunk_size"
+        )
 
     chunks = []
 
     start = 0
 
-    while start < len(text):
+    text_length = len(text)
 
-        end = start + chunk_size
+    while start < text_length:
 
-        chunk = text[start:end]
+        end = min(
+            start + chunk_size,
+            text_length
+        )
 
-        chunks.append(chunk)
+        chunk = text[start:end].strip()
+
+        if chunk:
+            chunks.append(chunk)
+
+        if end >= text_length:
+            break
 
         start = end - chunk_overlap
+
+    print()
+    print("========== TEXT CHUNKING ==========")
+    print("Text length:", text_length)
+    print("Chunk size:", chunk_size)
+    print("Chunk overlap:", chunk_overlap)
+    print("Total chunks:", len(chunks))
+    print("===================================")
+    print()
 
     return chunks

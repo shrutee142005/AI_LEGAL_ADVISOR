@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AI Legal Advisor</title>
+
+    <link
+        rel="stylesheet"
+        href="/frontend/style.css"
+    >
+
+</head>
+
+<body>
+
+    <main class="page">
+
+        <!-- =====================================
+             LEFT BRAND SECTION
+        ====================================== -->
+
+        <section class="brand-section">
+
+            <div class="brand-content">
+
+                <div class="logo">
+                    ⚖
+                </div>
+
+                <h1>
+                    AI Legal Advisor
+                </h1>
+
+                <p class="brand-description">
+                    Your intelligent assistant for
+                    understanding legal documents
+                    with clarity and confidence.
+                </p>
+
+
+                <div class="feature-list">
+
+                    <div class="feature">
+
+                        <span class="feature-icon">
+                            ✓
+                        </span>
+
+                        <div>
+                            <strong>
+                                Document-based answers
+                            </strong>
+
+                            <p>
+                                Get answers from your uploaded legal documents.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <span class="feature-icon">
+                            ✓
+                        </span>
+
+                        <div>
+                            <strong>
+                                Intelligent legal search
+                            </strong>
+
+                            <p>
+                                Quickly find relevant information from documents.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <span class="feature-icon">
+                            ✓
+                        </span>
+
+                        <div>
+                            <strong>
+                                Private conversations
+                            </strong>
+
+                            <p>
+                                Your documents and conversations stay protected.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="legal-note">
+
+                    <span>🔒</span>
+
+                    Secure AI-powered legal document assistance
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             AUTH SECTION
+        ====================================== -->
+
+        <section class="auth-section">
+
+            <div class="auth-card">
+
+
+                <div class="mobile-logo">
+
+                    <div class="logo">
+                        ⚖
+                    </div>
+
+                    <h1>
+                        AI Legal Advisor
+                    </h1>
+
+                </div>
+
+
+                <div class="auth-heading">
+
+                    <h2 id="authTitle">
+                        Welcome back
+                    </h2>
+
+                    <p id="authSubtitle">
+                        Sign in to continue to your legal assistant
+                    </p>
+
+                </div>
+
+
+                <!-- =================================
+                     TABS
+                ================================== -->
+
+                <div class="tabs">
+
+                    <button
+                        id="loginTab"
+                        class="tab active"
+                        onclick="showLogin()"
+                    >
+                        Login
+                    </button>
+
+                    <button
+                        id="registerTab"
+                        class="tab"
+                        onclick="showRegister()"
+                    >
+                        Register
+                    </button>
+
+                </div>
+
+
+                <!-- =================================
+                     LOGIN
+                ================================== -->
+
+                <form
+                    id="loginForm"
+                    onsubmit="login(event)"
+                >
+
+                    <div class="input-group">
+
+                        <label for="loginEmail">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="loginPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                    >
+                        Sign In
+                    </button>
+
+                </form>
+
+
+                <!-- =================================
+                     REGISTER
+                ================================== -->
+
+                <form
+                    id="registerForm"
+                    class="hidden"
+                    onsubmit="register(event)"
+                >
+
+                    <div class="input-group">
+
+                        <label for="registerName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="registerName"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="registerEmail">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="registerEmail"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="registerPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                    >
+                        Create Account
+                    </button>
+
+                </form>
+
+
+                <!-- =================================
+                     MESSAGE
+                ================================== -->
+
+                <p
+                    id="message"
+                    class="message"
+                ></p>
+
+
+                <div class="auth-footer">
+
+                    AI Legal Advisor
+
+                    <span>•</span>
+
+                    Legal document assistant
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="/frontend/script.js"></script>
+
+</body>
+
+</html>

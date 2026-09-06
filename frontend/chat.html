@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Legal Chat | AI Legal Advisor</title>
+
+    <link
+        rel="stylesheet"
+        href="/frontend/chat.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =========================================
+         TOP NAVBAR
+    ========================================== -->
+
+    <header class="navbar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ⚖
+            </div>
+
+            <div>
+
+                <div class="brand-title">
+                    AI Legal Advisor
+                </div>
+
+                <div class="brand-subtitle">
+                    Intelligent Legal Assistant
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="nav-actions">
+
+            <button
+                class="dashboard-btn"
+                onclick="goDashboard()"
+            >
+                Dashboard
+            </button>
+
+            <button
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         MAIN CHAT LAYOUT
+    ========================================== -->
+
+    <main class="chat-layout">
+
+
+        <!-- =====================================
+             SIDEBAR
+        ====================================== -->
+
+        <aside class="sidebar">
+
+
+            <button
+                class="new-chat-btn"
+                onclick="createConversation()"
+            >
+
+                <span class="plus-icon">
+                    +
+                </span>
+
+                New Conversation
+
+            </button>
+
+
+            <div class="sidebar-heading">
+
+                <span>
+                    Conversations
+                </span>
+
+                <span
+                    id="conversationCount"
+                    class="conversation-count"
+                >
+                    0
+                </span>
+
+            </div>
+
+
+            <div
+                id="conversationList"
+                class="conversation-list"
+            >
+
+                <div class="sidebar-loading">
+
+                    Loading conversations...
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-footer">
+
+                <div class="secure-badge">
+
+                    🔒 Your conversations are private
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================
+             CHAT CONTENT
+        ====================================== -->
+
+        <section class="chat-area">
+
+
+            <!-- CHAT HEADER -->
+
+            <div class="chat-header">
+
+                <div>
+
+                    <div class="chat-title-row">
+
+                        <h1 id="chatTitle">
+                            Legal Assistant
+                        </h1>
+
+                        <span class="online-dot"></span>
+
+                    </div>
+
+                    <p id="chatSubtitle">
+                        Ask questions based on your uploaded legal documents.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hidden conversation ID -->
+
+            <input
+                type="hidden"
+                id="conversationId"
+            >
+
+
+            <!-- =================================
+                 MESSAGES
+            ================================== -->
+
+            <div
+                id="messages"
+                class="messages"
+            >
+
+                <div class="welcome-screen">
+
+                    <div class="welcome-icon">
+                        ⚖
+                    </div>
+
+                    <h2>
+                        Welcome to your Legal Assistant
+                    </h2>
+
+                    <p id="WelcomeText">
+                        Your conservation is ready.Ask a question about your document.
+                    </p>
+
+                    <div class="suggestions">
+
+                        <button
+                            onclick="useSuggestion(
+                                'What are the main features of legal rights?'
+                            )"
+                        >
+                            What are the main features of legal rights?
+                        </button>
+
+                        <button
+                            onclick="useSuggestion(
+                                'What fundamental rights are mentioned in the document?'
+                            )"
+                        >
+                            What fundamental rights are mentioned?
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 INPUT AREA
+            ================================== -->
+
+            <div class="input-container">
+
+                <div class="input-box">
+
+                    <textarea
+                        id="question"
+                        rows="1"
+                        placeholder="Ask a legal question..."
+                        onkeydown="handleEnter(event)"
+                    ></textarea>
+
+
+                    <button
+                        id="askButton"
+                        class="send-btn"
+                        onclick="askQuestion()"
+                        title="Send question"
+                    >
+
+                        <span id="sendIcon">
+                            ➤
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div class="input-footer">
+
+                    <span>
+                        AI-generated answers are based only on your uploaded documents.
+                    </span>
+
+                    <span>
+                        Press Enter to send
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div
+                id="statusMessage"
+                class="status-message"
+            ></div>
+
+
+        </section>
+
+    </main>
+
+
+    <script src="/frontend/chat.js"></script>
+
+</body>
+
+</html>

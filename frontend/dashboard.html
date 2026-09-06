@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AI Legal Advisor</title>
+
+    <link
+        rel="stylesheet"
+        href="/frontend/dashboard.css"
+    >
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="brand">
+        <div class="brand-icon">⚖</div>
+
+        <div>
+            <div class="brand-title">
+                AI Legal Advisor
+            </div>
+
+            <div class="brand-subtitle">
+                Understand your legal documents with AI
+            </div>
+        </div>
+    </div>
+
+    <button
+        class="logout-btn"
+        onclick="logout()"
+    >
+        Logout
+    </button>
+
+</header>
+
+
+<main class="dashboard-container">
+
+    <!-- ==========================================
+         INTRO
+    =========================================== -->
+
+    <section class="intro-section">
+
+        <h1>
+            Your Legal Workspace
+        </h1>
+
+        <p>
+            Upload a legal document, understand its important points,
+            and ask AI questions about it.
+        </p>
+
+    </section>
+
+
+    <!-- ==========================================
+         LEGAL VALUES
+    =========================================== -->
+
+    <section class="values-grid">
+
+        <div class="value-card">
+
+            <div class="value-icon">
+                ⚖
+            </div>
+
+            <div>
+
+                <h3>
+                    Equality & Dignity
+                </h3>
+
+                <p>
+                    Everyone deserves fair and respectful treatment.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="value-card">
+
+            <div class="value-icon">
+                🛡
+            </div>
+
+            <div>
+
+                <h3>
+                    Human Rights
+                </h3>
+
+                <p>
+                    Basic rights protect freedom, safety and dignity.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="value-card">
+
+            <div class="value-icon">
+                ⚙
+            </div>
+
+            <div>
+
+                <h3>
+                    Justice & Fairness
+                </h3>
+
+                <p>
+                    Legal systems help protect rights and resolve disputes.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         UPLOAD
+    =========================================== -->
+
+    <section class="upload-card">
+
+        <div class="upload-icon">
+            📄
+        </div>
+
+        <div class="upload-content">
+
+            <h2>
+                Upload a Legal Document
+            </h2>
+
+            <p>
+                Upload a PDF and get an automatic AI analysis
+                of its important points.
+            </p>
+
+            <label
+                for="pdfFile"
+                class="choose-file-btn"
+            >
+                + Choose PDF
+            </label>
+
+            <input
+                type="file"
+                id="pdfFile"
+                accept=".pdf,application/pdf"
+                hidden
+            >
+
+            <button
+                id="uploadBtn"
+                class="upload-btn"
+                onclick="uploadDocument()"
+            >
+                Upload PDF
+            </button>
+
+            <div
+                id="uploadMessage"
+                class="upload-message"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         DOCUMENTS
+    =========================================== -->
+
+    <section class="documents-section">
+
+        <div class="section-title-row">
+
+            <div>
+
+                <h2>
+                    Your Documents
+                </h2>
+
+                <p>
+                    View analysis or ask questions about your documents.
+                </p>
+
+            </div>
+
+            <button
+                class="refresh-btn"
+                onclick="loadDocuments()"
+            >
+                ↻ Refresh
+            </button>
+
+        </div>
+
+
+        <div
+            id="documentsList"
+            class="documents-grid"
+        >
+
+            <div class="loading">
+                Loading documents...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         WORKSPACE
+    =========================================== -->
+
+    <section class="workspace-section">
+
+        <h2>
+            Workspace
+        </h2>
+
+        <div class="workspace-grid">
+
+            <div class="workspace-card">
+
+                <div class="workspace-icon">
+                    📑
+                </div>
+
+                <h3>
+                    Summary
+                </h3>
+
+                <p>
+                    Read the important points and AI-generated
+                    analysis of your uploaded documents.
+                </p>
+
+                <p class="workspace-note">
+                    Select a document above to view its analysis.
+                </p>
+
+            </div>
+
+
+            <div class="workspace-card">
+
+                <div class="workspace-icon">
+                    💬
+                </div>
+
+                <h3>
+                    Chats
+                </h3>
+
+                <p>
+                    Ask questions and discuss your uploaded
+                    legal documents with AI.
+                </p>
+
+                <p class="workspace-note">
+                    Use "Ask AI" on a document to start.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="/frontend/dashboard.js"></script>
+
+</body>
+
+</html>
